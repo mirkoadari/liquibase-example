@@ -1,0 +1,13 @@
+<?xml version="1.0"  encoding="ISO-8859-1"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+  <New id="example" class="org.eclipse.jetty.plus.jndi.Resource">
+    <Arg>jdbc/example</Arg>
+    <Arg>
+      <New class="org.apache.derby.jdbc.EmbeddedDataSource">
+        <Set name="databaseName">target/database/example</Set>
+        <Set name="createDatabase">create</Set>
+      </New>
+    </Arg>
+  </New>
+</Configure>
