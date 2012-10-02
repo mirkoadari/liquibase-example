@@ -12,23 +12,18 @@ import java.util.Date;
 @Entity
 public class Event {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   public Long id;
 
-  @Column(insertable = false)
+  @Column(insertable = false, updatable = false)
   @Temporal(TemporalType.TIMESTAMP)
   public Date createdAt;
 
-  public void save() {
-   JPA.em().persist(this);
+  @Override
+  public String toString() {
+    return "Event{" +
+      "id=" + id +
+      ", createdAt=" + createdAt +
+      '}';
   }
-
-  public static Long count() {
-    return JPA.em().createQuery("select count(*) from Event", Long.class).getSingleResult();
-  }
-
-  public static Date lastUpdate() {
-    return JPA.em().createQuery("select max(createdAt) from Event", Date.class).getSingleResult();
-  }
-
 }

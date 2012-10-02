@@ -13,9 +13,9 @@
       </column>
     </createTable>
   </changeSet>
-  <changeSet id="added createdAt timestamp to event" author="mirko">
+  <changeSet id="added created_at timestamp to event" author="mirko">
     <addColumn tableName="Event">
-      <column name="createdAt" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP">
+      <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP">
         <constraints nullable="false"/>
       </column>
     </addColumn>
