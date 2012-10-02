@@ -8,15 +8,13 @@ import javax.persistence.Id;
 @Entity
 public class Event {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   public Long id;
 
-  public void save() {
-   JPA.em().persist(this);
+  @Override
+  public String toString() {
+    return "Event{" +
+      "id=" + id +
+      '}';
   }
-
-  public static Long count() {
-    return JPA.em().createQuery("select count(*) from Event", Long.class).getSingleResult();
-  }
-
 }
