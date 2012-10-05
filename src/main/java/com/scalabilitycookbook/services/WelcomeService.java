@@ -16,7 +16,10 @@ public class WelcomeService {
     Event e = new Event();
     Ebean.save(e);
     Ebean.refresh(e); // refresh to get the generated createdAt
-    return e.toString();
+    return "Event{" +
+      "id=" + e.id +
+      ", createdAt=" + e.createdAt +
+      '}';
   }
 
 }
