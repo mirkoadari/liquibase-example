@@ -15,7 +15,9 @@ public class WelcomeService {
   public String welcome() {
     Event e = new Event();
     Ebean.save(e);
-    return e.toString();
+    return "Event{" +
+      "id=" + e.id +
+      '}';
   }
 
 }
